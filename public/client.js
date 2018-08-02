@@ -11,22 +11,33 @@ $(function() {
   })
   
     // Add a variable "pet_info" equal to a dictionary with the name (string), weight (number), and happiness (number) of your pet
-  
+    var pet_info = {
+      name: "Jameson",
+      weight: 10,
+      happiness: 10
+    }
+
     function clickedTreatButton() {
       // Increase pet happiness
+      pet_info.happiness++,
       // Increase pet weight
+      pet_info.weight++
       checkAndUpdatePetInfoInHtml();
     }
     
     function clickedPlayButton() {
       // Increase pet happiness
+      pet_info.happiness++,
       // Decrease pet weight
+      pet_info.weight--
       checkAndUpdatePetInfoInHtml();
     }
     
     function clickedExerciseButton() {
       // Decrease pet happiness
+      pet_info.happiness--,
       // Decrease pet weight
+      pet_info.weight--
       checkAndUpdatePetInfoInHtml();
     }
   
@@ -37,6 +48,9 @@ $(function() {
     
     function checkWeightAndHappinessBeforeUpdating() {
       // Add conditional so if weight is lower than zero, set it back to zero
+      if (pet_info.weight < 0){
+        pet_info.weight = 0
+      }
     }
     
     // Updates your HTML with the current values in your pet_info dictionary
